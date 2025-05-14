@@ -19,7 +19,7 @@ app.get('/region',async(req,res)=>{
 
 app.get('/employees',async(req,res)=>{
     try{
-        const result = await pool.query('SELECT COUNT(employee_id) AS total_employees FROM employees');
+        const result = await pool.query('SELECT * FROM employees');
         res.json(result.rows);
     }catch(err) {
         res.status(500).json({Error:err.message})
